@@ -22,6 +22,7 @@ public partial class Main : Node {
 		mqtt.ReceivedMessage += (topic, data) => { // (string, byte[])
 			GD.Print($"Received message '{Encoding.UTF8.GetString(data)}' from '{topic}'");
 		};
+		mqtt.ConnectToBroker("broker.emqx.io");
 	}
 	public override void _Process(double delta) {
 		t += delta;
