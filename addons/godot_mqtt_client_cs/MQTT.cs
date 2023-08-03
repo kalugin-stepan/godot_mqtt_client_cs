@@ -105,9 +105,6 @@ public partial class MQTT : Node {
 		else if (socket != null && socket.GetStatus() == StreamPeerTcp.Status.Connected) {
 			socket.Poll();
 			int n = socket.GetAvailableBytes();
-			if (n == -1) {
-				GD.Print("Fuck");
-			}
 			if (n != 0) {
 				var sv = socket.GetData(n);
 				if (sv[0].AsInt32() != 0) {
@@ -295,9 +292,12 @@ public partial class MQTT : Node {
 				i++;
 			}
 			msg[i] = (byte)(Pswd.Length >> 8);
+			i++;
 			msg[i] = (byte)(Pswd.Length & 0xFF);
+			i++;
 			foreach (char j in Pswd) {
 				msg[i] = (byte)j;
+				i++;
 			}
 		}
 		return msg;

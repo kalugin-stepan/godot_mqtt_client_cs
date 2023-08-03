@@ -1,7 +1,7 @@
 using Godot;
 using System.Text;
 
-public partial class Main : Node {
+public partial class Example : Node {
 	MQTT mqtt;
 	double t = 0;
 	public override void _Ready() {
@@ -28,6 +28,7 @@ public partial class Main : Node {
 		t += delta;
 		if (t > 2 && mqtt.Connected) {
 			mqtt.Publish("test_pub", "hello");
+			t = 0;
 		}
 	}
 }

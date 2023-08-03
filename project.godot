@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="godot_mqtt_client_cs"
+run/main_scene="res://Example.tscn"
 config/features=PackedStringArray("4.0", "C#", "Forward Plus")
 config/icon="res://icon.png"
 
